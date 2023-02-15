@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/** canvas-container **/
+.canvas-container {
+  display: flex;
+  background-color: rgb(209, 89, 89);
+  margin: auto;
+  width: 90vw;
+  height: 90vh;
+}
+
+canvas {
+  display: block;
+  margin: auto;
+  background-color: white;
+  border: 1px solid black;
+}
+
+/** Gallery Section **/
+.gallery-container {
+  margin: auto;
+  display: flex;
+  gap: 10px;
+  width: 300px;
+}
+
+.gallery-container img {
+  width: 100%;
+}

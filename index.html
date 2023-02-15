@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ido Memes</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body onload="onInit()">
+    <!-- Header Nav Bar -->
+    <header>
+      <nav>
+        <ul>
+          <li class="logo">Ido Memes</li>
+          <li>Memes</li>
+          <li>Gallery</li>
+          <li>About</li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="gallery-container">
+      <!-- Render Gallery Here -->
+    </section>
+
+    <!-- Editor Section -->
+    <section class="editor-page-container">
+      <div class="canvas-container">
+        <!-- Canvas -->
+        <canvas id="canvas" height="450" width="450"></canvas>
+        <!-- Editor -->
+        <div class="editor">
+          <label for="txt">Text:</label>
+          <!-- Txt: -->
+          <input type="text" id="txt" oninput="onTextInput(this.value)" placeholder="txt line" />
+          <!-- Color -->
+          <button>
+            <input oninput="changeTxtColor(this.value)" type="color" value="white" id="color" />
+          </button>
+          <!-- Font Size: -->
+          <button onclick="changeFontSize(true)" class="increase">A+</button>
+          <button onclick="changeFontSize(false)" class="decrease">A-</button>
+          <!-- Switch Line Btn -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <script src="js/util.js"></script>
+    <script src="js/memeController.js"></script>
+    <script src="js/galleyController.js"></script>
+    <script src="js/memeService.js"></script>
+  </body>
+</html>
