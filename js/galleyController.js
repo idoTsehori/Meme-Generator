@@ -2,7 +2,6 @@
 
 function renderGallery() {
   const imgs = getImgs()
-  console.log('imgs', imgs)
   const strHTMLs = imgs.map((img) => {
     return `
     <article>

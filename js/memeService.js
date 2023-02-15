@@ -44,3 +44,16 @@ function setMemeColor(userColor) {
   const { memeTxt } = getMeme()
   memeTxt.color = userColor
 }
+
+function addNewLine() {
+  //* Push a new Line
+  gMeme.lines.push({
+    txt: 'New Line',
+    size: 40,
+    align: 'center',
+    color: 'white',
+  })
+
+  //* Select the new Line
+  gMeme.selectedLineIdx = gMeme.lines.length - 1
+}

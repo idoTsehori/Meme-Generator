@@ -50,3 +50,12 @@ function changeFontSize(increaseClicked) {
   //
   renderMeme()
 }
+
+function onAddLine() {
+  addNewLine()
+  console.log('gMeme', gMeme)
+  // const meme = getSelectedMeme()
+  // console.log('selectedMeme', meme)
+
+  drawTxt('dssd', '40', color, 'center', 50, 50)
+}
