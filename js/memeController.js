@@ -7,7 +7,7 @@ function onInit() {
   gCanvas = document.querySelector('#canvas')
   gCtx = gCanvas.getContext('2d')
   renderGallery()
-  renderMeme()
+  // renderMeme()
 }
 
 function renderMeme() {
@@ -45,13 +45,8 @@ function drawTxt(text, size, color, align, x, y, isSelected) {
 
   //* If the Text Line is Selected- focus it:
   if (isSelected) {
-    // const text = gCtx.measureText('foo')
-    const txtWidth = gCtx.measureText(text).width
-    let metrics = gCtx.measureText(text)
-    var h = getTextHeight(`${gCtx.font}`)
     gCtx.strokeStyle = 'black'
-    console.log('h', h)
-    gCtx.strokeRect(txtWidth, 50, x, y)
+    gCtx.strokeRect(x + 50, y, x + 50, y)
   }
 }
 

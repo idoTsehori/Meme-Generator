@@ -12,9 +12,7 @@
     <header>
       <nav>
         <ul>
-          <div class="logo">
-            <li><a href="">Ido Memes</a></li>
-          </div>
+          <li class="logo"><a href="">Ido Memes</a></li>
           <li><a href="">Memes</a></li>
           <li><a href="">Gallery</a></li>
           <li><a href="">About</a></li>
@@ -28,34 +26,67 @@
     </section>
 
     <!-- Editor Section -->
-    <section class="editor-page-container">
+    <section class="editor-page-container" hidden>
       <div class="canvas-container">
         <!-- Canvas -->
         <canvas id="canvas" height="450" width="450"></canvas>
+
         <!-- Editor -->
         <div class="editor">
-          <label for="txt">Text:</label>
-          <!-- Txt: -->
           <input type="text" id="txt" oninput="onTextInput(this.value)" placeholder="txt line" />
-          <!-- Color -->
-          <button>
-            <input oninput="changeTxtColor(this.value)" type="color" value="white" id="color" />
-          </button>
-          <!-- Font Size: -->
-          <button onclick="changeFontSize(true)" class="increase">A+</button>
-          <button onclick="changeFontSize(false)" class="decrease">A-</button>
-          <!-- Switch Btn -->
-          <button class="btn switchline-btn" onclick="onSwitchLine()">🔽</button>
-          <!-- Add Line Btn-->
-          <button class="btn addLine-btn" onclick="onAddLine()">➕</button>
-          <!-- Delete Line Btn-->
-          <button class="btn removeLine-btn" onclick="onRemoveLine()">❌</button>
+          <article class="btns-container">
+            <button class="btn switchline-btn" onclick="onSwitchLine()">
+              <img src="logos/up-and-down-opposite-double-arrows-side-by-side.png" />
+            </button>
+            <button class="btn addLine-btn" onclick="onAddLine()">
+              <img src="logos/add.png" />
+            </button>
+            <button class="btn removeLine-btn" onclick="onRemoveLine()">
+              <img src="logos/trash.png" />
+            </button>
+          </article>
+
+          <article class="btns-container">
+            <!-- <input
+              class="btn"
+              oninput="changeTxtColor(this.value)"
+              type="color"
+              value="white"
+              id="font-color" /> -->
+            <label for="create-color">
+              <img src="logos/paint-board-and-brush.png" />
+              <input
+                type="color"
+                id="create-color"
+                style="display: none"
+                list="mycolors"
+                oninput="changeTxtColor(this.value)" />
+            </label>
+
+            <datalist id="mycolors">
+              <option>#FF0000</option>
+              <option>#00FF00</option>
+              <option>#0000FF</option>
+            </datalist>
+
+            <button onclick="changeFontSize(true)" class="btn increase">
+              <img src="logos/increase font - icon.png" />
+            </button>
+            <button onclick="changeFontSize(false)" class="btn decrease">
+              <img src="logos/decrease font - icon.png" />
+            </button>
+          </article>
+
+          <article class="btns-container"></article>
+          <article class="btns-container"></article>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer></footer>
+    <footer>
+      <small>Ido Tsehori CoofeeRights 2023</small>
+    </footer>
 
     <script src="js/util.js"></script>
     <script src="js/memeController.js"></script>

@@ -5,30 +5,45 @@
 body {
   margin: 0;
   font-family: cursive;
+  background: radial-gradient(circle, rgba(174, 180, 238, 1) 0%, rgba(172, 233, 148, 1) 100%);
 }
 
 /** Header **/
+header .logo {
+  text-align: start;
+}
+
 header nav ul {
-  display: flex;
-  justify-content: space-around;
-  /* align-content: center; */
+  display: grid;
+  grid-template-columns: 50% repeat(3, 1fr);
+  gap: 5px;
+  text-align: center;
   list-style-type: none;
   background-color: antiquewhite;
   margin: 0;
   height: 5vh;
 }
 
-header ul a {
+header ul li:not(:first-child):hover {
+  border-bottom: 3px solid green;
+  background-color: rgb(233, 217, 195);
+  transition: 0.3s;
+  scale: 1.1;
+}
+
+header a {
   text-decoration: none;
 }
 
 /** canvas-container **/
 .canvas-container {
   display: flex;
-  background-color: rgb(209, 89, 89);
+  background-color: rgb(170, 163, 163);
   margin: auto;
-  width: 90vw;
-  height: 90vh;
+  margin-top: 10px;
+  width: max-content;
+  /* height: 90vh; */
+  border-radius: 15px;
 }
 
 canvas {
@@ -36,16 +51,75 @@ canvas {
   margin: auto;
   background-color: white;
   border: 1px solid black;
+  border-radius: 15px;
+}
+
+/** Editor Right BAR **/
+.editor {
+  display: grid;
+  gap: 20px;
+  grid-template-rows: 30px 30px 110px 110px 60px;
+  padding: 15px;
+}
+
+.editor .btns-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid rgb(144, 138, 138);
+  border-radius: 10px;
+}
+
+.editor .btn,
+.editor label {
+  border-radius: 10px;
+  border: none;
+  width: 30px;
+  height: 23px;
+  cursor: pointer;
+  background-color: rgb(243, 229, 255);
+  transition: 0.2s;
+}
+
+.editor .btn:hover {
+  background-color: rgb(219, 195, 239);
+  scale: 1.1;
+}
+
+.editor img {
+  width: 100%;
 }
 
 /** Gallery Section **/
 .gallery-container {
+  border: 1px solid grey;
+  border-radius: 15px;
   margin: auto;
+  margin-top: 20px;
+  padding: 15px;
   display: flex;
-  gap: 10px;
+  gap: 15px;
   width: 300px;
+  background-color: rgb(209, 238, 255);
 }
 
 .gallery-container img {
   width: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 15px;
+}
+
+.gallery-container img:hover {
+  scale: 1.2;
+}
+
+/** Footer **/
+footer {
+  position: fixed;
+  background-color: antiquewhite;
+  border-top: 1 px solid black;
+  bottom: 0;
+  left: 50%;
 }

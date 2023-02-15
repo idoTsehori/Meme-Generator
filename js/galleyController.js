@@ -16,4 +16,8 @@ function renderGallery() {
 function onImgSelect(imgId) {
   setImg(imgId)
   renderMeme()
+  // * Hide Gallery
+  document.querySelector('.gallery-container').style.display = 'none'
+  // * Show Meme Editor
+  document.querySelector('.editor-page-container').style.display = 'block'
 }
