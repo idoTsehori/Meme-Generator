@@ -20,16 +20,23 @@ var gMeme = {
 }
 
 function getMeme() {
+  return gMeme
+}
+
+function getImgById(selectedImgId) {
   //*Get Meme Img by ID
-  const memeImg = gImgs.find((img) => img.id === gMeme.selectedImgId)
-  //*Get Meme text
-  const memeTxt = gMeme.lines[gMeme.selectedLineIdx]
-  return { memeImg, memeTxt }
+  const img = gImgs.find((img) => img.id === selectedImgId)
+  return img.url
+}
+
+function getSelectedLine() {
+  return gMeme.lines[gMeme.selectedLineIdx]
 }
 
 function setLineTxt(userTxt) {
-  const { memeTxt } = getMeme()
-  memeTxt.txt = userTxt
+  const selectedLine = getSelectedLine()
+  selectedLine.txt = userTxt
+  console.log('selectedLine', selectedLine)
 }
 
 function getImgs() {
@@ -41,8 +48,8 @@ function setImg(imgId) {
 }
 
 function setMemeColor(userColor) {
-  const { memeTxt } = getMeme()
-  memeTxt.color = userColor
+  const selecetedLine = getSelectedLine()
+  selecetedLine.color = userColor
 }
 
 function addNewLine() {
@@ -56,4 +63,16 @@ function addNewLine() {
 
   //* Select the new Line
   gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function RemoveLastLine() {
+  //* Remove Last Line
+  gMeme.lines.pop()
+  //* Select the new Line
+  gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function changeSelectedLine() {
+  gMeme.selectedLineIdx++
+  if (gMeme.selectedLineIdx >= gMeme.lines.length) gMeme.selectedLineIdx = 0
 }

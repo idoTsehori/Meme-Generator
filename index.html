@@ -12,10 +12,12 @@
     <header>
       <nav>
         <ul>
-          <li class="logo">Ido Memes</li>
-          <li>Memes</li>
-          <li>Gallery</li>
-          <li>About</li>
+          <div class="logo">
+            <li><a href="">Ido Memes</a></li>
+          </div>
+          <li><a href="">Memes</a></li>
+          <li><a href="">Gallery</a></li>
+          <li><a href="">About</a></li>
         </ul>
       </nav>
     </header>
@@ -42,10 +44,12 @@
           <!-- Font Size: -->
           <button onclick="changeFontSize(true)" class="increase">A+</button>
           <button onclick="changeFontSize(false)" class="decrease">A-</button>
+          <!-- Switch Btn -->
+          <button class="btn switchline-btn" onclick="onSwitchLine()">🔽</button>
           <!-- Add Line Btn-->
           <button class="btn addLine-btn" onclick="onAddLine()">➕</button>
           <!-- Delete Line Btn-->
-          <button>❌</button>
+          <button class="btn removeLine-btn" onclick="onRemoveLine()">❌</button>
         </div>
       </div>
     </section>

@@ -4,6 +4,22 @@
 
 body {
   margin: 0;
+  font-family: cursive;
+}
+
+/** Header **/
+header nav ul {
+  display: flex;
+  justify-content: space-around;
+  /* align-content: center; */
+  list-style-type: none;
+  background-color: antiquewhite;
+  margin: 0;
+  height: 5vh;
+}
+
+header ul a {
+  text-decoration: none;
 }
 
 /** canvas-container **/
