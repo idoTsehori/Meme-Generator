@@ -91,6 +91,11 @@ canvas {
   width: 100%;
 }
 
+/** gallery tool bar **/
+.gallery-toolbar {
+  display: flex;
+}
+
 /** Gallery Section **/
 .gallery-container {
   border: 1px solid grey;

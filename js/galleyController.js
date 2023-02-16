@@ -2,6 +2,7 @@
 
 function renderGallery() {
   const imgs = getImgs()
+  // console.log('imgs', imgs)
   const strHTMLs = imgs.map((img) => {
     return `
     <article>
@@ -9,6 +10,7 @@ function renderGallery() {
     src="imgs/memes-square/${img.url}" />
     </article>`
   })
+
   const elGalleryContainer = document.querySelector('.gallery-container')
   elGalleryContainer.innerHTML = strHTMLs.join('')
 }
@@ -17,7 +19,7 @@ function onImgSelect(imgId) {
   setImg(imgId)
   renderMeme()
   // * Hide Gallery
-  document.querySelector('.gallery-container').style.display = 'none'
+  document.querySelector('.gallery-page').style.display = 'none'
   // * Show Meme Editor
   document.querySelector('.editor-page-container').style.display = 'block'
 }

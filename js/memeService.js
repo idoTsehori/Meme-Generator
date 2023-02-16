@@ -13,7 +13,7 @@ var gMeme = {
     {
       txt: 'I sometimes eat Falafel',
       size: 40,
-      align: 'center',
+      align: 'left',
       color: 'white',
     },
   ],

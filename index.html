@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body onload="onInit()">
-    <!-- Header Nav Bar -->
+    <!--* Header Nav Bar -->
     <header>
       <nav>
         <ul>
-          <li class="logo"><a href="">Ido Memes</a></li>
+          <!-- <li class="logo"><a href=""><img src="logos/Meme That Shit LOGO.jpg"></li> -->
           <li><a href="">Memes</a></li>
           <li><a href="">Gallery</a></li>
           <li><a href="">About</a></li>
@@ -20,12 +20,20 @@
       </nav>
     </header>
 
-    <!-- Gallery Section -->
-    <section class="gallery-container">
-      <!-- Render Gallery Here -->
-    </section>
+    <!-- Gallery Tool Bar -->
+    <main class="gallery-page">
+      <!-- TODO: ADD GALLERY TOOLBAR: -->
+      <!-- <section class="gallery-toolbar">
+        <input type="text" placeholder="SEARCH" />
+      </section> -->
 
-    <!-- Editor Section -->
+      <!-- Gallery Section -->
+      <section class="gallery-container">
+        <!-- Render Gallery Here -->
+      </section>
+    </main>
+
+    <!--* Editor Section -->
     <section class="editor-page-container" hidden>
       <div class="canvas-container">
         <!-- Canvas -->
@@ -33,7 +41,11 @@
 
         <!-- Editor -->
         <div class="editor">
-          <input type="text" id="txt" oninput="onTextInput(this.value)" placeholder="txt line" />
+          <input
+            type="text"
+            id="txt"
+            oninput="onTextInput(this.value)"
+            placeholder="Write Something..." />
           <article class="btns-container">
             <button class="btn switchline-btn" onclick="onSwitchLine()">
               <img src="logos/up-and-down-opposite-double-arrows-side-by-side.png" />
@@ -83,7 +95,7 @@
       </div>
     </section>
 
-    <!-- Footer -->
+    <!--* Footer -->
     <footer>
       <small>Ido Tsehori CoofeeRights 2023</small>
     </footer>
