@@ -42,7 +42,7 @@
     <section class="editor-page-container" hidden>
       <div class="canvas-container">
         <!-- Canvas -->
-        <canvas id="canvas" height="600" width="600"></canvas>
+        <canvas id="canvas" height="627" width="627"></canvas>
 
         <!-- Editor -->
         <div class="editor">
@@ -52,10 +52,6 @@
             oninput="onTextInput(this.value)"
             placeholder="Write Something..." />
           <article class="btns-container">
-            <button class="btn moveTxtDown-btn" onclick="onMoveTxtDown()">👇🏼</button>
-            <button class="btn moveTxtUp-btn" onclick="onMoveTxtUp()">☝🏼</button>
-            <button class="btn moveTxtRight-btn" onclick="onMoveTxtRight()">👉🏼</button>
-            <button class="btn moveTxtLeft-btn" onclick="onMoveTxtLeft()">👈🏼</button>
             <button class="btn switchline-btn" onclick="onSwitchLine()">
               <img src="logos/up-and-down-opposite-double-arrows-side-by-side.png" />
             </button>
@@ -67,13 +63,17 @@
             </button>
           </article>
 
-          <article class="btns-container">
+          <article class="second-container">
             <!-- <input
               class="btn"
               oninput="changeTxtColor(this.value)"
               type="color"
               value="white"
               id="font-color" /> -->
+            <button class="btn moveTxtDown-btn" onclick="onMoveTxtDown()">👇🏼</button>
+            <button class="btn moveTxtUp-btn" onclick="onMoveTxtUp()">☝🏼</button>
+            <button class="btn moveTxtRight-btn" onclick="onMoveTxtRight()">👉🏼</button>
+            <button class="btn moveTxtLeft-btn" onclick="onMoveTxtLeft()">👈🏼</button>
             <label for="create-color">
               <img src="logos/paint-board-and-brush.png" />
               <input
@@ -103,8 +103,11 @@
             </button>
           </article>
 
-          <article class="btns-container"></article>
-          <article class="btns-container"></article>
+          <article class="btns-container">sticker container</article>
+          <article class="fourth-container">
+            <button onclick="alert('still not working :)')">Share</button>
+            <button onclick="alert('still not working :)')">Download</button>
+          </article>
         </div>
       </div>
     </section>

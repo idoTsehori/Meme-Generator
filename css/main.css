@@ -42,7 +42,8 @@ header a {
 /** canvas-container **/
 .canvas-container {
   display: flex;
-  background-color: rgb(170, 163, 163);
+  background: linear-gradient(332deg, rgba(255, 154, 218, 1) 29%, rgba(255, 235, 145, 1) 82%);
+
   margin: auto;
   margin-top: 10px;
   width: max-content;
@@ -62,17 +63,53 @@ canvas {
 .editor {
   display: grid;
   gap: 22px;
-  grid-template-rows: 30px 65px 145px 145px 95px;
+  grid-template-rows: 30px 65px 175px 145px 95px;
   padding: 15px;
 }
 
 .editor .btns-container {
+  padding: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 3px;
   border: 1px solid rgb(144, 138, 138);
   border-radius: 10px;
+}
+
+.second-container {
+  padding: 10px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  border: 1px solid rgb(144, 138, 138);
+  border-radius: 10px;
+}
+
+.fourth-container {
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.fourth-container button {
+  font-size: 20px;
+  width: 120px;
+  height: 45px;
+  border: none;
+  border-radius: 15px;
+  background-color: rgb(229, 255, 246);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.fourth-container button:hover {
+  scale: 1.1;
+  background-color: rgb(194, 228, 216);
 }
 
 .editor .btn,
