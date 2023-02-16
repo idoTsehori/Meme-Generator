@@ -25,7 +25,7 @@ function renderMeme() {
         memeLine.size,
         memeLine.color,
         memeLine.align,
-        50,
+        110,
         idx * 50 + 30,
         memeIsSelected
       )

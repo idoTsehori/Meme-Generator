@@ -31,6 +31,10 @@ header ul li:not(:first-child):hover {
   scale: 1.1;
 }
 
+header li img {
+  height: 50px;
+}
+
 header a {
   text-decoration: none;
 }
@@ -42,8 +46,8 @@ header a {
   margin: auto;
   margin-top: 10px;
   width: max-content;
-  /* height: 90vh; */
   border-radius: 15px;
+  box-shadow: -8px 5px 16px 0px rgba(87, 90, 76, 0.6);
 }
 
 canvas {
@@ -57,8 +61,8 @@ canvas {
 /** Editor Right BAR **/
 .editor {
   display: grid;
-  gap: 20px;
-  grid-template-rows: 30px 30px 110px 110px 60px;
+  gap: 22px;
+  grid-template-rows: 30px 65px 145px 145px 95px;
   padding: 15px;
 }
 
@@ -102,15 +106,17 @@ canvas {
   border-radius: 15px;
   margin: auto;
   margin-top: 20px;
-  padding: 15px;
+  padding: 20px;
   display: flex;
-  gap: 15px;
-  width: 300px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  width: 800px;
   background-color: rgb(209, 238, 255);
 }
 
 .gallery-container img {
-  width: 100%;
+  width: 200px;
   cursor: pointer;
   transition: 0.3s;
   border-radius: 15px;
@@ -123,8 +129,35 @@ canvas {
 /** Footer **/
 footer {
   position: fixed;
-  background-color: antiquewhite;
-  border-top: 1 px solid black;
+  left: 0;
   bottom: 0;
-  left: 50%;
+  width: 100%;
+  background-color: rgb(240, 242, 199);
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  /** canvas-container **/
+  .canvas-container {
+    display: flex;
+    flex-direction: column;
+
+    /* margin: auto; */
+    /* margin-top: 10px; */
+    /* width: max-content; */
+    /* border-radius: 15px; */
+    /* box-shadow: -8px 5px 16px 0px rgba(87, 90, 76, 0.6); */
+  }
+  canvas {
+    height: 300px;
+  }
+
+  .editor {
+    display: grid;
+    gap: 22px;
+    grid-template-rows: 20px 30px 90px 90px 50px;
+    padding: 15px;
+  }
 }
