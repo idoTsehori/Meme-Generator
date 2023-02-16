@@ -2,10 +2,15 @@
 let gCanvas
 let gCtx
 
+// TODO Drag and Drop:
+let gStartPos
+const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
+
 function onInit() {
   gCanvas = document.querySelector('#canvas')
   gCtx = gCanvas.getContext('2d')
   renderGallery()
+  // addListeners()
 }
 
 function renderMeme() {
@@ -116,4 +121,61 @@ function saveLineXY(mimeLine, x, y) {
   mimeLine.x = x
   mimeLine.y = y
   LinesXY.push(mimeLine)
+}
+
+//*Handle the listeners
+// TODO Drag n Drop
+function addListeners() {
+  addMouseListeners()
+  addTouchListeners()
+  //Listen for resize ev
+  // window.addEventListener('resize', () => {
+  //   onInit()
+  // })
+}
+
+function addMouseListeners() {
+  gCanvas.addEventListener('mousedown', onDown)
+  gCanvas.addEventListener('mousemove', onMove)
+  gCanvas.addEventListener('mouseup', onUp)
+}
+
+function addTouchListeners() {
+  gCanvas.addEventListener('touchstart', onDown)
+  gCanvas.addEventListener('touchmove', onMove)
+  gCanvas.addEventListener('touchend', onUp)
+}
+
+function onDown(ev) {
+  // console.log('Down')
+  // Get the ev pos from mouse or touch
+  const pos = getEvPos(ev)
+  // console.log('pos', pos)
+  if (!isLineClicked(pos, ev)) return
+
+  setCircleDrag(true)
+  //Save the pos we start from
+  gStartPos = pos
+  document.body.style.cursor = 'grabbing'
+}
+
+function getEvPos(ev) {
+  // Gets the offset pos , the default pos
+  let pos = {
+    x: ev.offsetX,
+    y: ev.offsetY,
+  }
+  // Check if its a touch ev
+  if (TOUCH_EVS.includes(ev.type)) {
+    //soo we will not trigger the mouse ev
+    ev.preventDefault()
+    //Gets the first touch point
+    ev = ev.changedTouches[0]
+    //Calc the right pos according to the touch screen
+    pos = {
+      x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+      y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+    }
+  }
+  return pos
 }

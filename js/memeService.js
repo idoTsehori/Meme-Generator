@@ -117,3 +117,22 @@ function changeSelectedLine() {
   console.log('gMeme', gMeme)
   console.log('gMeme.lines', gMeme.lines)
 }
+// TODO DRAG N DROP:
+function isLineClicked(clickedPos, ev) {
+  // console.log(gMeme.lines)
+  console.log('ev.clientX+30', ev.clientX + 33)
+  const userClickX = ev.clientX + 33
+  console.log('ev.offsetY', ev.offsetY)
+  gMeme.lines.forEach((line) => {
+    console.log('line.x', line.x)
+    if (userClickX >= line.x) {
+      console.log('boom')
+    }
+  })
+
+  // Calc the distance between two dots
+  // const distance = Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
+  // console.log('distance', distance)
+  //If its smaller then the radius of the circle we are inside
+  // return distance <= gCircle.size
+}

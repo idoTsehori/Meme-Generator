@@ -63,7 +63,7 @@ canvas {
 .editor {
   display: grid;
   gap: 22px;
-  grid-template-rows: 30px 65px 175px 145px 95px;
+  grid-template-rows: 35px 40px 175px 155px 105px;
   padding: 15px;
 }
 
@@ -77,6 +77,12 @@ canvas {
   border-radius: 10px;
 }
 
+.first-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
 .second-container {
   padding: 10px;
   display: grid;
@@ -86,6 +92,12 @@ canvas {
   grid-template-columns: repeat(5, 1fr);
   border: 1px solid rgb(144, 138, 138);
   border-radius: 10px;
+}
+.second-container .font-select {
+  text-align: center;
+  grid-column: 1/4;
+  width: 7rem;
+  height: 1.5rem;
 }
 
 .fourth-container {

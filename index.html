@@ -51,7 +51,8 @@
             id="txt"
             oninput="onTextInput(this.value)"
             placeholder="Write Something..." />
-          <article class="btns-container">
+          <!-- note: first container -->
+          <article class="first-container">
             <button class="btn switchline-btn" onclick="onSwitchLine()">
               <img src="logos/up-and-down-opposite-double-arrows-side-by-side.png" />
             </button>
@@ -63,6 +64,7 @@
             </button>
           </article>
 
+          <!-- note: second container -->
           <article class="second-container">
             <!-- <input
               class="btn"
@@ -83,7 +85,7 @@
                 list="mycolors"
                 oninput="changeTxtColor(this.value)" />
             </label>
-            <select onchange="onFontSelect(this.value)">
+            <select class="font-select" onchange="onFontSelect(this.value)">
               <option value="impact">Impact</option>
               <option value="arial">Arial</option>
               <option value="cursie">Cursie</option>
@@ -102,8 +104,9 @@
               <img src="logos/decrease font - icon.png" />
             </button>
           </article>
-
-          <article class="btns-container">sticker container</article>
+          <!-- note: Third container -->
+          <article class="btns-container third-container">sticker container</article>
+          <!-- note: Fourth container -->
           <article class="fourth-container">
             <button onclick="alert('still not working :)')">Share</button>
             <button onclick="alert('still not working :)')">Download</button>
