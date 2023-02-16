@@ -23,12 +23,14 @@
       </nav>
     </header>
 
-    <!-- Gallery Tool Bar -->
+    <!--* Gallery Tool Bar *-->
     <main class="gallery-page">
       <!-- TODO: ADD GALLERY TOOLBAR: -->
-      <!-- <section class="gallery-toolbar">
-        <input type="text" placeholder="SEARCH" />
-      </section> -->
+      <section class="gallery-toolbar">
+        <button onclick="onGenerateRandomMeme()">I'm Flexible</button>
+        <!-- search text: -->
+        <!-- <input type="text" placeholder="SEARCH" /> -->
+      </section>
 
       <!-- Gallery Section -->
       <section class="gallery-container">
@@ -50,6 +52,7 @@
             oninput="onTextInput(this.value)"
             placeholder="Write Something..." />
           <article class="btns-container">
+            <button class="btn moveTxtDown-btn" onclick="onMoveTxtDown()">👇🏼</button>
             <button class="btn switchline-btn" onclick="onSwitchLine()">
               <img src="logos/up-and-down-opposite-double-arrows-side-by-side.png" />
             </button>
@@ -77,6 +80,11 @@
                 list="mycolors"
                 oninput="changeTxtColor(this.value)" />
             </label>
+            <select onchange="onFontSelect(this.value)">
+              <option value="impact">Impact</option>
+              <option value="arial">Arial</option>
+              <option value="cursie">Cursie</option>
+            </select>
 
             <datalist id="mycolors">
               <option>#FF0000</option>

@@ -106,17 +106,17 @@ canvas {
   border-radius: 15px;
   margin: auto;
   margin-top: 20px;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
   width: 800px;
-  background-color: rgb(209, 238, 255);
+  background-color: rgb(206, 230, 243);
 }
 
 .gallery-container img {
-  width: 200px;
+  width: 160px;
   cursor: pointer;
   transition: 0.3s;
   border-radius: 15px;
@@ -143,12 +143,6 @@ footer {
   .canvas-container {
     display: flex;
     flex-direction: column;
-
-    /* margin: auto; */
-    /* margin-top: 10px; */
-    /* width: max-content; */
-    /* border-radius: 15px; */
-    /* box-shadow: -8px 5px 16px 0px rgba(87, 90, 76, 0.6); */
   }
   canvas {
     height: 300px;

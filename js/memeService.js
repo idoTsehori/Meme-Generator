@@ -1,5 +1,6 @@
 'use strict'
 var gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 }
+let gSelectedFont = 'impact'
 
 var gImgs = [
   { id: 1, url: '1.jpg', keywords: ['Trump', 'Angry'] },
@@ -57,6 +58,14 @@ function setLineTxt(userTxt) {
 
 function getImgs() {
   return gImgs
+}
+
+function setSelectedFont(font) {
+  gSelectedFont = font
+}
+
+function getSelectedFont() {
+  return gSelectedFont
 }
 
 function setImg(imgId) {

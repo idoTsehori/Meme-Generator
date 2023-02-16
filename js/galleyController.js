@@ -23,3 +23,9 @@ function onImgSelect(imgId) {
   // * Show Meme Editor
   document.querySelector('.editor-page-container').style.display = 'block'
 }
+
+function onGenerateRandomMeme() {
+  console.log('Generate Random Meme')
+  const randomId = getRandomImgId()
+  onImgSelect(imgId)
+}
