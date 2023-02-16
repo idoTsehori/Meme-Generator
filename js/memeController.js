@@ -1,9 +1,6 @@
 'use strict'
 let gCanvas
 let gCtx
-let nextLineDiff = 0
-let LinesXY = []
-let y = 30
 
 function onInit() {
   gCanvas = document.querySelector('#canvas')
@@ -11,69 +8,43 @@ function onInit() {
   renderGallery()
 }
 
-function renderMeme(downBtnClicked) {
+function renderMeme() {
   const meme = getMeme()
   const memeLines = meme.lines
   const memeImg = getImgById(meme.selectedImgId)
-  const font = getSelectedFont()
   const img = new Image()
   img.src = `imgs/memes-square/${memeImg}`
 
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-    LinesXY = []
-
     memeLines.forEach((memeLine, idx) => {
       //* Text Lines Draw:
       const memeIsSelected = idx === meme.selectedLineIdx
-      if (memeIsSelected && downBtnClicked) {
-        drawTxt(
-          memeLine,
-          memeLine.txt,
-          font,
-          memeLine.size,
-          memeLine.color,
-          memeLine.align,
-          110,
-          (memeLine.y += y),
-          memeIsSelected
-        )
-        return
-      }
-
-      drawTxt(
-        memeLine,
-        memeLine.txt,
-        font,
-        memeLine.size,
-        memeLine.color,
-        memeLine.align,
-        110,
-        idx * 50 + 30,
-        memeIsSelected
-      )
+      drawTxt(memeLine, memeIsSelected)
     })
   }
 }
 
-function drawTxt(memeLine, text, font, size, color, align, x, y, isSelected) {
+function drawTxt(memeLine, isSelected) {
+  const { txt, font, size, color, align, x, y } = memeLine
+
   gCtx.lineWidth = 2
   gCtx.strokeStyle = 'black'
   gCtx.fillStyle = color
+  gCtx.align = align
   gCtx.font = `${size}px ${font}`
-  var textWidth = gCtx.measureText(text).width
+  var textWidth = gCtx.measureText(txt).width
   var lineHeight = size * 1.286
   gCtx.textBaseline = 'top'
 
-  gCtx.fillText(text, x, y) // Draws (fills) a given text at the given (x, y) position.
-  gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.
+  gCtx.fillText(txt, x, y) // Draws (fills) a given text at the given (x, y) position.
+  gCtx.strokeText(txt, x, y) // Draws (strokes) a given text at the given (x, y) position.
 
   //* If the Text Line is Selected- focus it:
   if (isSelected) {
     gCtx.strokeStyle = 'blue'
     gCtx.strokeRect(x, y, textWidth, lineHeight)
   }
-  saveLineXY(memeLine, x, y)
 }
 
 function onTextInput(userTxt) {
@@ -88,7 +59,6 @@ function changeTxtColor(color) {
 
 function changeFontSize(increaseClicked) {
   const selectedLine = getSelectedLine()
-  console.log('selectedLine', selectedLine)
   const diff = increaseClicked ? 7 : -7
   selectedLine.size += diff
   //
@@ -120,7 +90,26 @@ function onFontSelect(font) {
 
 function onMoveTxtDown() {
   const selectedLine = getSelectedLine()
-  renderMeme(true)
+  selectedLine.y += 30
+  renderMeme()
+}
+
+function onMoveTxtUp() {
+  const selectedLine = getSelectedLine()
+  selectedLine.y -= 30
+  renderMeme()
+}
+
+function onMoveTxtRight() {
+  const selectedLine = getSelectedLine()
+  selectedLine.x += 30
+  renderMeme()
+}
+
+function onMoveTxtLeft() {
+  const selectedLine = getSelectedLine()
+  selectedLine.x -= 30
+  renderMeme()
 }
 
 function saveLineXY(mimeLine, x, y) {

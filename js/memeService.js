@@ -1,7 +1,5 @@
 'use strict'
 var gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 }
-let gSelectedFont = 'impact'
-
 var gImgs = [
   { id: 1, url: '1.jpg', keywords: ['Trump', 'Angry'] },
   { id: 2, url: '2.jpg', keywords: ['Dog', 'Cute'] },
@@ -30,8 +28,11 @@ var gMeme = {
     {
       txt: 'I sometimes eat Falafel',
       size: 40,
-      align: 'left',
+      align: 'center',
       color: 'white',
+      x: 150,
+      y: 30,
+      font: 'impact',
     },
   ],
 }
@@ -53,7 +54,6 @@ function getSelectedLine() {
 function setLineTxt(userTxt) {
   const selectedLine = getSelectedLine()
   selectedLine.txt = userTxt
-  console.log('selectedLine', selectedLine)
 }
 
 function getImgs() {
@@ -61,7 +61,8 @@ function getImgs() {
 }
 
 function setSelectedFont(font) {
-  gSelectedFont = font
+  const selectedLine = getSelectedLine()
+  selectedLine.font = font
 }
 
 function getSelectedFont() {
@@ -78,16 +79,26 @@ function setMemeColor(userColor) {
 }
 
 function addNewLine() {
+  // * Get prev line Y:
+  let prevY
+  var prevText = gMeme.lines[gMeme.lines.length - 1]
+  if (!prevText) prevY = 0
+  else prevY = prevText.y
   //* Push a new Line
   gMeme.lines.push({
     txt: 'New Line',
     size: 40,
     align: 'center',
     color: 'white',
+    font: 'impact',
+    x: gCanvas.width / 2 - 50,
+    y: prevY + 40,
   })
 
   //* Select the new Line
   gMeme.selectedLineIdx = gMeme.lines.length - 1
+  console.log('gMeme', gMeme)
+  console.log('gMeme.lines', gMeme.lines)
 }
 
 function RemoveLastLine() {
@@ -95,9 +106,14 @@ function RemoveLastLine() {
   gMeme.lines.pop()
   //* Select the new Line
   gMeme.selectedLineIdx = gMeme.lines.length - 1
+
+  console.log('gMeme', gMeme)
+  console.log('gMeme.lines', gMeme.lines)
 }
 
 function changeSelectedLine() {
   gMeme.selectedLineIdx++
   if (gMeme.selectedLineIdx >= gMeme.lines.length) gMeme.selectedLineIdx = 0
+  console.log('gMeme', gMeme)
+  console.log('gMeme.lines', gMeme.lines)
 }
