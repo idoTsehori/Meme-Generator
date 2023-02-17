@@ -10,7 +10,7 @@ function onInit() {
   gCanvas = document.querySelector('#canvas')
   gCtx = gCanvas.getContext('2d')
   renderGallery()
-  // addListeners()
+  addListeners()
 }
 
 function renderMeme() {
@@ -36,19 +36,21 @@ function drawTxt(memeLine, isSelected) {
   gCtx.lineWidth = 2
   gCtx.strokeStyle = 'black'
   gCtx.fillStyle = color
-  gCtx.align = align
+  gCtx.textAlign = align
   gCtx.font = `${size}px ${font}`
   var textWidth = gCtx.measureText(txt).width
   var lineHeight = size * 1.286
-  gCtx.textBaseline = 'top'
-
+  // gCtx.textBaseline = 'top'
+  gCtx.textBaseline = 'middle'
+  var xDiff = x - textWidth / 2 - 10
+  var yDidd = y - lineHeight / 2
   gCtx.fillText(txt, x, y) // Draws (fills) a given text at the given (x, y) position.
   gCtx.strokeText(txt, x, y) // Draws (strokes) a given text at the given (x, y) position.
 
   //* If the Text Line is Selected- focus it:
   if (isSelected) {
     gCtx.strokeStyle = 'blue'
-    gCtx.strokeRect(x, y, textWidth, lineHeight)
+    gCtx.strokeRect(xDiff, yDidd, textWidth + 20, lineHeight)
   }
 }
 
@@ -147,15 +149,17 @@ function addTouchListeners() {
 }
 
 function onDown(ev) {
-  // console.log('Down')
-  // Get the ev pos from mouse or touch
   const pos = getEvPos(ev)
-  // console.log('pos', pos)
-  if (!isLineClicked(pos, ev)) return
+  const selectedLineIdx = getLineClickedIdx(pos)
 
-  setCircleDrag(true)
-  //Save the pos we start from
-  gStartPos = pos
+  // * If its equal to -1 means there's no clicked line idx
+  if (selectedLineIdx === -1) return
+  // Select the line with rect:
+  getMeme().selectedLineIdx = selectedLineIdx
+  renderMeme()
+  // Set the line drag prop to true:
+  setLineDrag(selectedLineIdx, true)
+  // change the cursor:
   document.body.style.cursor = 'grabbing'
 }
 
@@ -178,4 +182,20 @@ function getEvPos(ev) {
     }
   }
   return pos
+}
+
+function onMove(ev) {
+  if (currDragLineIdx === null) return
+  const selecetedLine = getMeme().lines[currDragLineIdx]
+  const pos = getEvPos(ev)
+  selecetedLine.x = pos.x
+  selecetedLine.y = pos.y
+  renderMeme()
+}
+
+function onUp() {
+  if (currDragLineIdx === null) return
+  setLineDrag(currDragLineIdx, false)
+  currDragLineIdx = null
+  document.body.style.cursor = 'grab'
 }

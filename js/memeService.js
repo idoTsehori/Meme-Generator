@@ -21,6 +21,9 @@ var gImgs = [
   { id: 18, url: '18.jpg', keywords: ['Toy Story', 'Look'] },
 ]
 
+let currDragLineIdx = null
+
+const elCanvas = document.querySelector('canvas')
 var gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
@@ -30,9 +33,10 @@ var gMeme = {
       size: 40,
       align: 'center',
       color: 'white',
-      x: 150,
+      x: elCanvas.width / 2,
       y: 30,
       font: 'impact',
+      isDrag: false,
     },
   ],
 }
@@ -84,6 +88,7 @@ function addNewLine() {
   var prevText = gMeme.lines[gMeme.lines.length - 1]
   if (!prevText) prevY = 0
   else prevY = prevText.y
+
   //* Push a new Line
   gMeme.lines.push({
     txt: 'New Line',
@@ -91,14 +96,13 @@ function addNewLine() {
     align: 'center',
     color: 'white',
     font: 'impact',
-    x: gCanvas.width / 2 - 50,
+    x: gCanvas.width / 2,
     y: prevY + 40,
+    isDrag: false,
   })
 
   //* Select the new Line
   gMeme.selectedLineIdx = gMeme.lines.length - 1
-  console.log('gMeme', gMeme)
-  console.log('gMeme.lines', gMeme.lines)
 }
 
 function RemoveLastLine() {
@@ -117,22 +121,25 @@ function changeSelectedLine() {
   console.log('gMeme', gMeme)
   console.log('gMeme.lines', gMeme.lines)
 }
-// TODO DRAG N DROP:
-function isLineClicked(clickedPos, ev) {
-  // console.log(gMeme.lines)
-  console.log('ev.clientX+30', ev.clientX + 33)
-  const userClickX = ev.clientX + 33
-  console.log('ev.offsetY', ev.offsetY)
-  gMeme.lines.forEach((line) => {
-    console.log('line.x', line.x)
-    if (userClickX >= line.x) {
-      console.log('boom')
-    }
-  })
 
-  // Calc the distance between two dots
-  // const distance = Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
-  // console.log('distance', distance)
-  //If its smaller then the radius of the circle we are inside
-  // return distance <= gCircle.size
+// TODO DRAG N DROP:
+
+function getLineClickedIdx(clickedPos) {
+  const lineIdx = gMeme.lines.findIndex((line) => {
+    const lineMetrics = gCtx.measureText(line.txt)
+    const lineX = line.x
+    const lineY = line.y
+    return (
+      clickedPos.x >= lineX - lineMetrics.actualBoundingBoxLeft &&
+      clickedPos.x <= lineX + lineMetrics.actualBoundingBoxRight &&
+      clickedPos.y >= lineY - lineMetrics.actualBoundingBoxDescent &&
+      clickedPos.y <= lineY + lineMetrics.actualBoundingBoxAscent
+    )
+  })
+  return lineIdx
+}
+
+function setLineDrag(selectedLineIdx, isDrag) {
+  currDragLineIdx = selectedLineIdx
+  gMeme.lines[selectedLineIdx].isDrag = isDrag
 }
