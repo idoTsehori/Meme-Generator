@@ -28,3 +28,7 @@ function onGenerateRandomMeme() {
   const randomId = getRandomImgId()
   onImgSelect(imgId)
 }
+
+function onAboutClick() {
+  alert(`Hey There! I'm Ido! I have no time to write a fancy modal:)`)
+}

@@ -27,7 +27,12 @@ function renderMeme() {
       const memeIsSelected = idx === meme.selectedLineIdx
       drawTxt(memeLine, memeIsSelected)
     })
+    meme.emojis.forEach((emoji) => drawEmoji(emoji))
   }
+}
+
+function drawEmoji(emoji) {
+  gCtx.fillText(emoji.emoji, emoji.x, emoji.y)
 }
 
 function drawTxt(memeLine, isSelected) {
@@ -49,7 +54,7 @@ function drawTxt(memeLine, isSelected) {
 
   //* If the Text Line is Selected- focus it:
   if (isSelected) {
-    gCtx.strokeStyle = 'blue'
+    gCtx.strokeStyle = 'grey'
     gCtx.strokeRect(xDiff, yDidd, textWidth + 20, lineHeight)
   }
 }
@@ -156,6 +161,8 @@ function onDown(ev) {
   if (selectedLineIdx === -1) return
   // Select the line with rect:
   getMeme().selectedLineIdx = selectedLineIdx
+  // Change input to Selected Line Text
+  document.querySelector('.editor #txt').value = getMeme().lines[selectedLineIdx].txt
   renderMeme()
   // Set the line drag prop to true:
   setLineDrag(selectedLineIdx, true)
@@ -198,4 +205,9 @@ function onUp() {
   setLineDrag(currDragLineIdx, false)
   currDragLineIdx = null
   document.body.style.cursor = 'grab'
+}
+
+function onEmojiClick(emojiName, emoji) {
+  getMeme().emojis.push({ name: emojiName, emoji, x: gCanvas.width / 2, y: gCanvas.height / 2 })
+  renderMeme()
 }

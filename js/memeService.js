@@ -27,9 +27,10 @@ const elCanvas = document.querySelector('canvas')
 var gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
+  emojis: [],
   lines: [
     {
-      txt: 'I sometimes eat Falafel',
+      txt: 'Write Something Crazy',
       size: 40,
       align: 'center',
       color: 'white',

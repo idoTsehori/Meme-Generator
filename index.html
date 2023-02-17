@@ -12,13 +12,15 @@
     <header>
       <nav>
         <ul>
-          <li class="logo"><a href="">Meme That Shit</a></li>
+          <li class="logo">
+            <a href=""><h1>Meme That Shit 💩</h1></a>
+          </li>
           <!-- <li>
             <a href=""><img src="logos/Meme That Shit LOGO.jpg" alt="" srcset="" /></a>
           </li> -->
           <li><a href="">Memes</a></li>
           <li><a href="">Gallery</a></li>
-          <li><a href="">About</a></li>
+          <li onclick="onAboutClick()"><a href="">About</a></li>
         </ul>
       </nav>
     </header>
@@ -105,11 +107,11 @@
             </button>
           </article>
           <!-- note: Third container -->
-          <article class="btns-container third-container">
-            <span>😋</span>
-            <span>😋</span>
-            <span>😋</span>
-            <span>😋</span>
+          <article class="third-container">
+            <span onclick="onEmojiClick('smile',this.innerText)">😋</span>
+            <span onclick="onEmojiClick('inLove',this.innerText)">😍</span>
+            <span onclick="onEmojiClick('shocked',this.innerText)">😱</span>
+            <span onclick="onEmojiClick('funny',this.innerText)">😆</span>
           </article>
           <!-- note: Fourth container -->
           <article class="fourth-container">
@@ -122,7 +124,7 @@
 
     <!--* Footer -->
     <footer>
-      <small>Ido Tsehori CoofeeRights &copy; 2023</small>
+      <small>Ido Tsehori CoffeeRights &copy; 2023</small>
     </footer>
 
     <script src="js/util.js"></script>

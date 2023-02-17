@@ -9,8 +9,9 @@ body {
 }
 
 /** Header **/
-header .logo {
+header .logo h1 {
   text-align: start;
+  margin: 0;
 }
 
 header nav ul {
@@ -29,10 +30,6 @@ header ul li:not(:first-child):hover {
   background-color: rgb(233, 217, 195);
   transition: 0.3s;
   scale: 1.1;
-}
-
-header li img {
-  height: 50px;
 }
 
 header a {
@@ -62,19 +59,25 @@ canvas {
 /** Editor Right BAR **/
 .editor {
   display: grid;
-  gap: 22px;
-  grid-template-rows: 35px 40px 175px 155px 105px;
+  gap: 40px;
+  grid-template-rows: 35px 40px 175px 80px 115px;
   padding: 15px;
 }
 
 .editor .btns-container {
-  padding: 6px;
+  padding: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 3px;
   border: 1px solid rgb(144, 138, 138);
   border-radius: 10px;
+}
+
+.editor #txt {
+  text-align: center;
+  border-radius: 15px;
+  border: none;
 }
 
 .first-container {
@@ -98,6 +101,24 @@ canvas {
   grid-column: 1/4;
   width: 7rem;
   height: 1.5rem;
+}
+
+.third-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid gray;
+  border-radius: 30px;
+  align-items: center;
+  justify-items: center;
+}
+
+.third-container span {
+  font-size: 2em;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.third-container span:hover {
+  scale: 1.4;
 }
 
 .fourth-container {
@@ -169,10 +190,12 @@ canvas {
   cursor: pointer;
   transition: 0.3s;
   border-radius: 15px;
+  opacity: 0.77;
 }
 
 .gallery-container img:hover {
   scale: 1.2;
+  opacity: 1;
 }
 
 /** Footer **/
