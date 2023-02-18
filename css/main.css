@@ -119,13 +119,22 @@ canvas {
 .first-container .switchline-btn {
   background: rgb(149, 149, 219);
 }
+.first-container .switchline-btn:hover {
+  background: rgb(102, 102, 186);
+}
 
 .first-container .addLine-btn {
   background: rgb(162, 216, 159);
 }
+.first-container .addLine-btn:hover {
+  background: rgb(136, 190, 133);
+}
 
 .first-container .removeLine-btn {
-  background: rgb(242, 82, 82);
+  background: rgb(246, 139, 139);
+}
+.first-container .removeLine-btn:hover {
+  background: rgb(213, 113, 113);
 }
 
 .second-container {
