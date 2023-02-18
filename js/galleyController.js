@@ -32,3 +32,10 @@ function onGenerateRandomMeme() {
 function onAboutClick() {
   alert(`Hey There! I'm Ido! I have no time to write a fancy modal:)`)
 }
+
+function openAboutModal() {
+  document.querySelector('.about-modal').hidden = false
+}
+function closeAboutModal() {
+  document.querySelector('.about-modal').hidden = true
+}

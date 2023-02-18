@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meme That 💩</title>
+    <title>Llama Memes🦙</title>
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body onload="onInit()">
@@ -13,14 +13,14 @@
       <nav>
         <ul>
           <li class="logo">
-            <a href=""><h1>Meme That Shit 💩</h1></a>
+            <a href=""><h1>Llama Meme🦙</h1></a>
           </li>
           <!-- <li>
             <a href=""><img src="logos/Meme That Shit LOGO.jpg" alt="" srcset="" /></a>
           </li> -->
           <li><a href="">Memes</a></li>
-          <li><a href="">Gallery</a></li>
-          <li onclick="onAboutClick()"><a href="">About</a></li>
+          <li>Gallery</li>
+          <li onclick="openAboutModal()">About</li>
         </ul>
       </nav>
     </header>
@@ -29,7 +29,7 @@
     <main class="gallery-page">
       <!-- TODO: ADD GALLERY TOOLBAR: -->
       <section class="gallery-toolbar">
-        <button onclick="onGenerateRandomMeme()">I'm Flexible</button>
+        <!-- <button onclick="onGenerateRandomMeme()">I'm Flexible</button> -->
         <!-- search text: -->
         <!-- <input type="text" placeholder="SEARCH" /> -->
       </section>
@@ -44,7 +44,7 @@
     <section class="editor-page-container" hidden>
       <div class="canvas-container">
         <!-- Canvas -->
-        <canvas id="canvas" height="627" width="627"></canvas>
+        <canvas id="canvas" height="630" width="630"></canvas>
 
         <!-- Editor -->
         <div class="editor">
@@ -74,19 +74,11 @@
               type="color"
               value="white"
               id="font-color" /> -->
-            <button class="btn moveTxtDown-btn" onclick="onMoveTxtDown()">👇🏼</button>
-            <button class="btn moveTxtUp-btn" onclick="onMoveTxtUp()">☝🏼</button>
-            <button class="btn moveTxtRight-btn" onclick="onMoveTxtRight()">👉🏼</button>
-            <button class="btn moveTxtLeft-btn" onclick="onMoveTxtLeft()">👈🏼</button>
-            <label for="create-color">
-              <img src="logos/paint-board-and-brush.png" />
-              <input
-                type="color"
-                id="create-color"
-                style="display: none"
-                list="mycolors"
-                oninput="changeTxtColor(this.value)" />
-            </label>
+            <button class="btn btn-move moveTxtDown-btn" onclick="onMoveTxtDown()">⬇</button>
+            <button class="btn btn-move moveTxtUp-btn" onclick="onMoveTxtUp()">⬆</button>
+            <button class="btn btn-move moveTxtRight-btn" onclick="onMoveTxtRight()">➡</button>
+            <button class="btn btn-move moveTxtLeft-btn" onclick="onMoveTxtLeft()">⬅</button>
+
             <select class="font-select" onchange="onFontSelect(this.value)">
               <option value="impact">Impact</option>
               <option value="arial">Arial</option>
@@ -105,6 +97,24 @@
             <button onclick="changeFontSize(false)" class="btn decrease">
               <img src="logos/decrease font - icon.png" />
             </button>
+            <button onclick="allignLeft()" class="btn allign-left">
+              <img src="logos/align-to-left.png" />
+            </button>
+            <button onclick="allignCenter()" class="btn allign-center">
+              <img src="logos/center-text-alignment.png" />
+            </button>
+            <button onclick="allignRight()" class="btn allign-right">
+              <img src="logos/align-to-right.png" />
+            </button>
+            <label for="create-color">
+              <img src="logos/paint-board-and-brush.png" />
+              <input
+                type="color"
+                id="create-color"
+                style="display: none"
+                list="mycolors"
+                oninput="changeTxtColor(this.value)" />
+            </label>
           </article>
           <!-- note: Third container -->
           <article class="third-container">
@@ -120,13 +130,22 @@
             >
             <button class="btn-done" onclick="onUploadImg()">Share on Facebook</button>
           </article>
+          <img class="llama-img" src="imgs/memes-square/llama-pic.png" alt="" />
         </div>
       </div>
     </section>
 
+    <!--*About Modal -->
+    <section class="about-modal" hidden>
+      <button onclick="closeAboutModal()">X</button>
+      <h1>Hey There!🦙</h1>
+      <p>I'm Ido Tsehori</p>
+      <img src="imgs/memes-square/me and llma.jpg" alt="me and llama" />
+    </section>
+
     <!--* Footer -->
     <footer>
-      <small>Ido Tsehori CoffeeRights &copy; 2023</small>
+      <small>Ido Tsehori LlamaRights &copy; 2023</small>
     </footer>
 
     <script src="js/share_on_facebook.js"></script>

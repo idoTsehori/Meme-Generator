@@ -126,10 +126,34 @@ function onMoveTxtLeft() {
   renderMeme()
 }
 
-function saveLineXY(mimeLine, x, y) {
-  mimeLine.x = x
-  mimeLine.y = y
-  LinesXY.push(mimeLine)
+// on Align Btns click:
+function allignLeft() {
+  const selectedline = getSelectedLine()
+  console.log('selectedline', selectedline)
+  var textWidth = gCtx.measureText(selectedline.txt).width
+  console.log('textWidth', textWidth)
+  // var lineHeight = selectedline.size * 1.286
+  // console.log('lineHeight', lineHeight)
+  // selectedline.x = textWidth
+  selectedline.x -= 100
+  renderMeme()
+}
+
+function allignRight() {
+  const selectedline = getSelectedLine()
+  console.log('selectedline', selectedline)
+  var textWidth = gCtx.measureText(selectedline.txt).width
+  console.log('textWidth', textWidth)
+  // var lineHeight = selectedline.size * 1.286
+  // console.log('lineHeight', lineHeight)
+  // selectedline.x = textWidth
+  selectedline.x += 100
+  renderMeme()
+}
+function allignCenter() {
+  const selectedline = getSelectedLine()
+  selectedline.x = gCanvas.width / 2
+  renderMeme()
 }
 
 //*Handle the listeners

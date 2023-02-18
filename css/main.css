@@ -5,7 +5,9 @@
 body {
   margin: 0;
   font-family: cursive;
-  background: radial-gradient(circle, rgba(174, 180, 238, 1) 0%, rgba(172, 233, 148, 1) 100%);
+  /* background: radial-gradient(circle, rgba(174, 180, 238, 1) 0%, rgba(172, 233, 148, 1) 100%); */
+  /* background: url('https://img.freepik.com/free-vector/watercolor-stains-abstract-background_23-2149107181.jpg?w=740&t=st=1676726690~exp=1676727290~hmac=21a76eb33dd99b08326303dadf968b62d2ed0715636da59445d3dadd95afad54'); */
+  background: url('https://img.freepik.com/free-vector/watercolor-alpaca-pattern_79603-2096.jpg?w=740&t=st=1676727257~exp=1676727857~hmac=3f86ac7596fa3946a1e2cd610ba796be57d591040413236fc94cdf10097842cd');
 }
 
 /** Header **/
@@ -26,6 +28,10 @@ header nav ul {
 }
 
 header ul li:not(:first-child):hover {
+  cursor: pointer;
+}
+
+header ul li:not(:first-child):hover {
   border-bottom: 3px solid green;
   background-color: rgb(233, 217, 195);
   transition: 0.3s;
@@ -34,6 +40,7 @@ header ul li:not(:first-child):hover {
 
 header a {
   text-decoration: none;
+  color: black;
 }
 
 /** canvas-container **/
@@ -42,7 +49,7 @@ header a {
   background: linear-gradient(332deg, rgba(255, 154, 218, 1) 29%, rgba(255, 235, 145, 1) 82%);
 
   margin: auto;
-  margin-top: 10px;
+  margin-top: 40px;
   width: max-content;
   border-radius: 15px;
   box-shadow: -8px 5px 16px 0px rgba(87, 90, 76, 0.6);
@@ -58,9 +65,10 @@ canvas {
 
 /** Editor Right BAR **/
 .editor {
+  position: relative;
   display: grid;
-  gap: 40px;
-  grid-template-rows: 35px 40px 175px 80px 115px;
+  gap: 33px;
+  grid-template-rows: 45px 40px 135px 100px 163px;
   padding: 15px;
 }
 
@@ -78,29 +86,52 @@ canvas {
   text-align: center;
   border-radius: 15px;
   border: none;
+  margin-top: 8px;
 }
 
 .first-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
 }
 
 .second-container {
-  padding: 10px;
+  /* padding: 10px; */
+  background-color: #e0e5de;
   display: grid;
   align-items: center;
   justify-items: center;
+  width: 500px;
   grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   border: 1px solid rgb(144, 138, 138);
   border-radius: 10px;
 }
 .second-container .font-select {
   text-align: center;
-  grid-column: 1/4;
-  width: 7rem;
-  height: 1.5rem;
+  grid-column: 1/5;
+  width: 13rem;
+  height: 1.7rem;
+}
+.second-container .allign-left {
+  grid-row: 1;
+  grid-column: 5;
+}
+.second-container .allign-center {
+  grid-row: 1;
+  grid-column: 6;
+}
+.second-container .allign-right {
+  grid-row: 1;
+  grid-column: 7;
+}
+
+.second-container .btn-move {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
 }
 
 .third-container {
@@ -145,6 +176,36 @@ canvas {
   background-color: rgb(194, 228, 216);
 } */
 .fourth-container .btn-done {
+  background: linear-gradient(to bottom right, #ef4765, #ff9a5a);
+  border: 0;
+  border-radius: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.fourth-container .btn-done:not([disabled]):focus {
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5), -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5),
+    0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+}
+.fourth-container .btn-done:not([disabled]):hover {
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5), -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5),
+    0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+}
+/* .fourth-container .btn-done {
   background: #d3eff8;
   border: none;
   font-size: 22px;
@@ -158,19 +219,19 @@ canvas {
   text-decoration: none;
   padding: 15px;
   transition: 0.3s;
-}
+} */
 
-.fourth-container .btn-done:hover {
+/* .fourth-container .btn-done:hover {
   background: #badce8;
   scale: 1.1;
-}
+} */
 
 .editor .btn,
 .editor label {
   border-radius: 10px;
-  border: none;
-  width: 30px;
-  height: 23px;
+  border: 1px solid black;
+  width: 40px;
+  height: 33px;
   cursor: pointer;
   background-color: rgb(243, 229, 255);
   transition: 0.2s;
@@ -183,6 +244,18 @@ canvas {
 
 .editor img {
   width: 100%;
+}
+
+.editor .llama-img {
+  position: absolute;
+  /* z-index: 2; */
+  top: 75px;
+  left: 30px;
+  width: 70px;
+  transition: 0.5s;
+}
+.editor .llama-img:hover {
+  transform: rotate(360deg);
 }
 
 /** gallery tool bar **/
@@ -217,6 +290,41 @@ canvas {
   scale: 1.2;
   opacity: 1;
 }
+/** About Modal **/
+.about-modal {
+  padding: 8px;
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: #f7c9ac;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50vw;
+}
+.about-modal h1 {
+  text-align: center;
+}
+.about-modal button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #f8cad3;
+  transition: 0.2s;
+}
+.about-modal button:hover {
+  scale: 1.1;
+  background-color: #d9a1ac;
+}
+.about-modal img {
+  margin-left: 20px;
+  border-radius: 30px;
+  width: 90%;
+}
 
 /** Footer **/
 footer {
@@ -224,7 +332,8 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(240, 242, 199);
+  background: rgb(247, 249, 216);
+  opacity: 0.8;
   color: rgb(0, 0, 0);
   text-align: center;
 }
