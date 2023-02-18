@@ -67,9 +67,24 @@ canvas {
 .editor {
   position: relative;
   display: grid;
-  gap: 33px;
-  grid-template-rows: 45px 40px 135px 100px 163px;
+  gap: 43px;
+  grid-template-rows: 45px 40px 135px 120px 163px;
   padding: 15px;
+}
+.editor .btn,
+.editor label {
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 40px;
+  height: 33px;
+  cursor: pointer;
+  background-color: rgb(243, 229, 255);
+  transition: 0.2s;
+}
+
+.editor .btn:hover {
+  background-color: rgb(219, 195, 239);
+  scale: 1.1;
 }
 
 .editor .btns-container {
@@ -94,6 +109,18 @@ canvas {
   justify-content: center;
   align-items: center;
   gap: 10px;
+}
+
+.first-container .switchline-btn {
+  background: rgb(149, 149, 219);
+}
+
+.first-container .addLine-btn {
+  background: rgb(162, 216, 159);
+}
+
+.first-container .removeLine-btn {
+  background: rgb(242, 82, 82);
 }
 
 .second-container {
@@ -132,6 +159,11 @@ canvas {
   justify-content: center;
   align-items: center;
   font-size: 2em;
+}
+
+.second-container #create-color {
+  position: absolute;
+  opacity: 0;
 }
 
 .third-container {
@@ -226,22 +258,6 @@ canvas {
   scale: 1.1;
 } */
 
-.editor .btn,
-.editor label {
-  border-radius: 10px;
-  border: 1px solid black;
-  width: 40px;
-  height: 33px;
-  cursor: pointer;
-  background-color: rgb(243, 229, 255);
-  transition: 0.2s;
-}
-
-.editor .btn:hover {
-  background-color: rgb(219, 195, 239);
-  scale: 1.1;
-}
-
 .editor img {
   width: 100%;
 }
@@ -249,7 +265,7 @@ canvas {
 .editor .llama-img {
   position: absolute;
   /* z-index: 2; */
-  top: 75px;
+  top: 95px;
   left: 30px;
   width: 70px;
   transition: 0.5s;
@@ -303,6 +319,7 @@ canvas {
   margin-left: auto;
   margin-right: auto;
   width: 50vw;
+  width: 50vh;
 }
 .about-modal h1 {
   text-align: center;

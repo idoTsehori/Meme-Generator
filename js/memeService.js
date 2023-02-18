@@ -142,3 +142,7 @@ function setLineDrag(selectedLineIdx, isDrag) {
   currDragLineIdx = selectedLineIdx
   gMeme.lines[selectedLineIdx].isDrag = isDrag
 }
+
+function unSelectTxt() {
+  gMeme.selectedLineIdx = null
+}

@@ -55,7 +55,7 @@
             placeholder="Write Something..." />
           <!-- note: first container -->
           <article class="first-container">
-            <button class="btn switchline-btn" onclick="onSwitchLine()">
+            <button title="Switch Lines" class="btn switchline-btn" onclick="onSwitchLine()">
               <img src="logos/up-and-down-opposite-double-arrows-side-by-side.png" />
             </button>
             <button class="btn addLine-btn" onclick="onAddLine()">
@@ -85,12 +85,6 @@
               <option value="cursie">Cursie</option>
             </select>
 
-            <datalist id="mycolors">
-              <option>#FF0000</option>
-              <option>#00FF00</option>
-              <option>#0000FF</option>
-            </datalist>
-
             <button onclick="changeFontSize(true)" class="btn increase">
               <img src="logos/increase font - icon.png" />
             </button>
@@ -106,7 +100,7 @@
             <button onclick="allignRight()" class="btn allign-right">
               <img src="logos/align-to-right.png" />
             </button>
-            <label for="create-color">
+            <!-- <label for="create-color">
               <img src="logos/paint-board-and-brush.png" />
               <input
                 type="color"
@@ -114,7 +108,11 @@
                 style="display: none"
                 list="mycolors"
                 oninput="changeTxtColor(this.value)" />
-            </label>
+            </label> -->
+            <button title="change text color" class="btn color-btn">
+              <input type="color" id="create-color" oninput="changeTxtColor(this.value)" />
+              <img src="logos/paint-board-and-brush.png" />
+            </button>
           </article>
           <!-- note: Third container -->
           <article class="third-container">

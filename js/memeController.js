@@ -182,9 +182,14 @@ function addTouchListeners() {
 function onDown(ev) {
   const pos = getEvPos(ev)
   const selectedLineIdx = getLineClickedIdx(pos)
+  console.log('selectedLineIdx', selectedLineIdx)
 
   // * If its equal to -1 means there's no clicked line idx
-  if (selectedLineIdx === -1) return
+  if (selectedLineIdx === -1) {
+    unSelectTxt()
+    renderMeme()
+    return
+  }
   // Select the line with rect:
   getMeme().selectedLineIdx = selectedLineIdx
   // Change input to Selected Line Text
