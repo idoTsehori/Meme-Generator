@@ -1,11 +1,9 @@
 'use strict'
 let gCanvas
 let gCtx
-let isDownload = false
-let doneRenderingDownload = false
-
-// TODO Drag and Drop:
+// let isDownload = false
 let gStartPos
+
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 function onInit() {
@@ -19,7 +17,7 @@ function renderMeme(isDownload = false) {
   const meme = getMeme()
   const memeLines = meme.lines
   const memeImg = getImgById(meme.selectedImgId)
-  const img = new Image()
+  let img = new Image()
   img.src = `imgs/memes-square/${memeImg}`
 
   img.onload = () => {
@@ -29,7 +27,6 @@ function renderMeme(isDownload = false) {
       const memeIsSelected = idx === meme.selectedLineIdx
       drawTxt(memeLine, memeIsSelected, isDownload)
     })
-    meme.emojis.forEach((emoji) => drawEmoji(emoji))
   }
 }
 
@@ -56,12 +53,9 @@ function drawTxt(memeLine, isSelected, isDownload) {
 
   //* If the Text Line is Selected- focus it:
 
-  console.log('isDownload', isDownload)
-  if (isDownload) {
-    doneRenderingDownload = true
-    return
-  }
-  if (isSelected) {
+  // if (isDownload) return
+
+  if (!isDownload && isSelected) {
     gCtx.strokeStyle = 'grey'
     gCtx.strokeRect(xDiff, yDidd, textWidth + 20, lineHeight)
   }
@@ -217,7 +211,7 @@ function onUp() {
 
 // *Emoji click
 function onEmojiClick(emojiName, emoji) {
-  getMeme().emojis.push({ name: emojiName, emoji, x: gCanvas.width / 2, y: gCanvas.height / 2 })
+  addNewLine(emoji)
   renderMeme()
 }
 

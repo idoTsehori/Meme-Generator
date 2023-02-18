@@ -27,7 +27,7 @@ const elCanvas = document.querySelector('canvas')
 var gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
-  emojis: [],
+  // emojis: [],
   lines: [
     {
       txt: 'Write Something Crazy',
@@ -83,7 +83,7 @@ function setMemeColor(userColor) {
   selecetedLine.color = userColor
 }
 
-function addNewLine() {
+function addNewLine(txt = 'New Line') {
   // * Get prev line Y:
   let prevY
   var prevText = gMeme.lines[gMeme.lines.length - 1]
@@ -92,7 +92,7 @@ function addNewLine() {
 
   //* Push a new Line
   gMeme.lines.push({
-    txt: 'New Line',
+    txt,
     size: 40,
     align: 'center',
     color: 'white',
@@ -122,8 +122,6 @@ function changeSelectedLine() {
   console.log('gMeme', gMeme)
   console.log('gMeme.lines', gMeme.lines)
 }
-
-// TODO DRAG N DROP:
 
 function getLineClickedIdx(clickedPos) {
   const lineIdx = gMeme.lines.findIndex((line) => {
