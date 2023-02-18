@@ -82,6 +82,9 @@ function changeFontSize(increaseClicked) {
 function onAddLine() {
   addNewLine()
   renderMeme()
+  // Focus the text Input:
+  document.querySelector('.editor #txt').focus()
+  document.querySelector('.editor #txt').value = getSelectedLine().txt
 }
 
 function onRemoveLine() {

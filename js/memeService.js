@@ -27,7 +27,8 @@ const elCanvas = document.querySelector('canvas')
 var gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
-  // emojis: [],
+  WroteSecondTxt: false,
+  WroteThirdTxt: false,
   lines: [
     {
       txt: 'Write Something Crazy',
@@ -98,10 +99,9 @@ function addNewLine(txt = 'New Line') {
     color: 'white',
     font: 'impact',
     x: gCanvas.width / 2,
-    y: prevY + 40,
+    y: getNextLineTxt(prevY),
     isDrag: false,
   })
-
   //* Select the new Line
   gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
@@ -145,4 +145,16 @@ function setLineDrag(selectedLineIdx, isDrag) {
 
 function unSelectTxt() {
   gMeme.selectedLineIdx = null
+}
+function getNextLineTxt(prevY) {
+  const meme = getMeme()
+  if (!meme.WroteSecondTxt) {
+    meme.WroteSecondTxt = true
+    return gCanvas.height - 30
+  }
+  if (meme.WroteSecondTxt && !meme.WroteThirdTxt) {
+    meme.WroteThirdTxt = true
+    return gCanvas.height / 2
+  }
+  return prevY + 50
 }

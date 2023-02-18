@@ -8,6 +8,7 @@ body {
   /* background: radial-gradient(circle, rgba(174, 180, 238, 1) 0%, rgba(172, 233, 148, 1) 100%); */
   /* background: url('https://img.freepik.com/free-vector/watercolor-stains-abstract-background_23-2149107181.jpg?w=740&t=st=1676726690~exp=1676727290~hmac=21a76eb33dd99b08326303dadf968b62d2ed0715636da59445d3dadd95afad54'); */
   background: url('https://img.freepik.com/free-vector/watercolor-alpaca-pattern_79603-2096.jpg?w=740&t=st=1676727257~exp=1676727857~hmac=3f86ac7596fa3946a1e2cd610ba796be57d591040413236fc94cdf10097842cd');
+  background-size: 100%;
 }
 
 /** Header **/
@@ -22,7 +23,7 @@ header nav ul {
   gap: 5px;
   text-align: center;
   list-style-type: none;
-  background-color: antiquewhite;
+  background-color: #fee2d6;
   margin: 0;
   height: 5vh;
 }
@@ -35,7 +36,7 @@ header ul li:not(:first-child):hover {
 }
 
 header ul li:not(:first-child):hover {
-  border-bottom: 3px solid green;
+  border-bottom: 3px solid #7f9d84;
   background-color: rgb(233, 217, 195);
   transition: 0.3s;
   scale: 1.1;
@@ -49,7 +50,7 @@ header a {
 /** canvas-container **/
 .canvas-container {
   display: flex;
-  background: linear-gradient(332deg, rgba(255, 154, 218, 1) 29%, rgba(255, 235, 145, 1) 82%);
+  background: linear-gradient(332deg, #feddd2 35%, #91ad98 76%);
 
   margin: auto;
   margin-top: 40px;
@@ -70,7 +71,7 @@ canvas {
 .editor {
   position: relative;
   display: grid;
-  gap: 43px;
+  gap: 50px;
   grid-template-rows: 45px 40px 135px 120px 163px;
   padding: 15px;
 }
@@ -128,7 +129,9 @@ canvas {
 
 .second-container {
   /* padding: 10px; */
-  background-color: #e0e5de;
+  /* background-color: #e0e5de; */
+  background: linear-gradient(331deg, rgba(253, 253, 253, 1) 34%, rgba(243, 177, 192, 1) 74%);
+
   display: grid;
   align-items: center;
   justify-items: center;
@@ -170,6 +173,14 @@ canvas {
 }
 
 .third-container {
+  background: rgb(177, 138, 130);
+  background: linear-gradient(
+    180deg,
+    rgb(217, 195, 191) 25%,
+    rgba(243, 177, 192, 1) 65%,
+    rgba(254, 221, 210, 1) 88%
+  );
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border: 1px solid gray;
@@ -211,10 +222,10 @@ canvas {
   background-color: rgb(194, 228, 216);
 } */
 .fourth-container .btn-done {
-  background: linear-gradient(to bottom right, #ef4765, #ff9a5a);
+  background: linear-gradient(to bottom right, #9cbaa0, #ffdcd1);
   border: 0;
   border-radius: 12px;
-  color: #ffffff;
+  color: #494444;
   cursor: pointer;
   display: inline-block;
   font-family: -apple-system, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -268,7 +279,7 @@ canvas {
 .editor .llama-img {
   position: absolute;
   /* z-index: 2; */
-  top: 95px;
+  top: 108px;
   left: 30px;
   width: 70px;
   transition: 0.5s;
@@ -317,7 +328,7 @@ canvas {
   position: absolute;
   border: 1px solid black;
   border-radius: 15px;
-  background-color: #ffe3d2;
+  background-color: #ffe4db;
   top: 50px;
   left: 0;
   right: 0;
