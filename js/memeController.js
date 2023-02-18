@@ -1,6 +1,8 @@
 'use strict'
 let gCanvas
 let gCtx
+let isDownload = false
+let doneRenderingDownload = false
 
 // TODO Drag and Drop:
 let gStartPos
@@ -13,7 +15,7 @@ function onInit() {
   addListeners()
 }
 
-function renderMeme() {
+function renderMeme(isDownload = false) {
   const meme = getMeme()
   const memeLines = meme.lines
   const memeImg = getImgById(meme.selectedImgId)
@@ -25,7 +27,7 @@ function renderMeme() {
     memeLines.forEach((memeLine, idx) => {
       //* Text Lines Draw:
       const memeIsSelected = idx === meme.selectedLineIdx
-      drawTxt(memeLine, memeIsSelected)
+      drawTxt(memeLine, memeIsSelected, isDownload)
     })
     meme.emojis.forEach((emoji) => drawEmoji(emoji))
   }
@@ -35,7 +37,7 @@ function drawEmoji(emoji) {
   gCtx.fillText(emoji.emoji, emoji.x, emoji.y)
 }
 
-function drawTxt(memeLine, isSelected) {
+function drawTxt(memeLine, isSelected, isDownload) {
   const { txt, font, size, color, align, x, y } = memeLine
 
   gCtx.lineWidth = 2
@@ -53,6 +55,12 @@ function drawTxt(memeLine, isSelected) {
   gCtx.strokeText(txt, x, y) // Draws (strokes) a given text at the given (x, y) position.
 
   //* If the Text Line is Selected- focus it:
+
+  console.log('isDownload', isDownload)
+  if (isDownload) {
+    doneRenderingDownload = true
+    return
+  }
   if (isSelected) {
     gCtx.strokeStyle = 'grey'
     gCtx.strokeRect(xDiff, yDidd, textWidth + 20, lineHeight)
@@ -207,7 +215,15 @@ function onUp() {
   document.body.style.cursor = 'grab'
 }
 
+// *Emoji click
 function onEmojiClick(emojiName, emoji) {
   getMeme().emojis.push({ name: emojiName, emoji, x: gCanvas.width / 2, y: gCanvas.height / 2 })
   renderMeme()
+}
+
+// * On Download clcik
+function downloadImg(elLink) {
+  renderMeme(true)
+  const imgContent = gCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+  elLink.href = imgContent
 }

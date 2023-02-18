@@ -129,7 +129,7 @@ canvas {
   gap: 20px;
 }
 
-.fourth-container button {
+/* .fourth-container button {
   font-size: 20px;
   width: 120px;
   height: 45px;
@@ -143,6 +143,26 @@ canvas {
 .fourth-container button:hover {
   scale: 1.1;
   background-color: rgb(194, 228, 216);
+} */
+.fourth-container .btn-done {
+  background: #d3eff8;
+  border: none;
+  font-size: 22px;
+  color: #3e5c5a;
+  cursor: pointer;
+  margin: 0 5px;
+  user-select: none;
+  white-space: nowrap;
+  padding: 5px 10px;
+  border-radius: 15px;
+  text-decoration: none;
+  padding: 15px;
+  transition: 0.3s;
+}
+
+.fourth-container .btn-done:hover {
+  background: #badce8;
+  scale: 1.1;
 }
 
 .editor .btn,
