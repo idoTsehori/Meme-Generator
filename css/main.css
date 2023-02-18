@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  font-family: cursive;
+  font-family: 'Mynerve', cursive;
   /* background: radial-gradient(circle, rgba(174, 180, 238, 1) 0%, rgba(172, 233, 148, 1) 100%); */
   /* background: url('https://img.freepik.com/free-vector/watercolor-stains-abstract-background_23-2149107181.jpg?w=740&t=st=1676726690~exp=1676727290~hmac=21a76eb33dd99b08326303dadf968b62d2ed0715636da59445d3dadd95afad54'); */
   background: url('https://img.freepik.com/free-vector/watercolor-alpaca-pattern_79603-2096.jpg?w=740&t=st=1676727257~exp=1676727857~hmac=3f86ac7596fa3946a1e2cd610ba796be57d591040413236fc94cdf10097842cd');
@@ -25,6 +25,9 @@ header nav ul {
   background-color: antiquewhite;
   margin: 0;
   height: 5vh;
+}
+header nav ul li {
+  font-weight: bold;
 }
 
 header ul li:not(:first-child):hover {
@@ -306,13 +309,15 @@ canvas {
   scale: 1.2;
   opacity: 1;
 }
+
 /** About Modal **/
 .about-modal {
+  font-size: 1.5em;
   padding: 8px;
   position: absolute;
   border: 1px solid black;
   border-radius: 15px;
-  background-color: #f7c9ac;
+  background-color: #ffe3d2;
   top: 50px;
   left: 0;
   right: 0;
@@ -321,7 +326,10 @@ canvas {
   width: 50vw;
   width: 50vh;
 }
-.about-modal h1 {
+.about-modal .title {
+  text-align: center;
+}
+.about-modal .sub-title {
   text-align: center;
 }
 .about-modal button {
