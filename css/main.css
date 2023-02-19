@@ -17,18 +17,32 @@ header .logo h1 {
   margin: 0;
 }
 
+header .logo img {
+  display: flex;
+  width: 35%;
+  transition: 0.2s;
+}
+header .logo img:hover {
+  scale: 1.15;
+}
+
 header nav ul {
   display: grid;
   grid-template-columns: 50% repeat(3, 1fr);
   gap: 5px;
   text-align: center;
   list-style-type: none;
-  background-color: #fee2d6;
+  background-color: #fdf6f2;
   margin: 0;
-  height: 5vh;
+  opacity: 0.95;
 }
+
 header nav ul li {
   font-weight: bold;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 header ul li:not(:first-child):hover {
@@ -36,10 +50,10 @@ header ul li:not(:first-child):hover {
 }
 
 header ul li:not(:first-child):hover {
-  border-bottom: 3px solid #7f9d84;
+  border-bottom: 4px solid #7f9d84;
   background-color: rgb(233, 217, 195);
-  transition: 0.3s;
-  scale: 1.1;
+  transition: 0.2s;
+  /* scale: 1.1; */
 }
 
 header a {
@@ -62,6 +76,7 @@ header a {
 canvas {
   display: block;
   margin: auto;
+
   background-color: white;
   border: 1px solid black;
   border-radius: 15px;
@@ -71,10 +86,11 @@ canvas {
 .editor {
   position: relative;
   display: grid;
-  gap: 50px;
-  grid-template-rows: 45px 40px 135px 120px 163px;
+  gap: 3px;
+  grid-template-rows: 45px 70px 155px 140px 183px;
   padding: 15px;
 }
+
 .editor .btn,
 .editor label {
   box-shadow: -12px 9px 15px 3px rgba(0, 0, 0, 0.17);
@@ -101,19 +117,20 @@ canvas {
   border: 1px solid rgb(144, 138, 138);
   border-radius: 10px;
 }
+.first-container {
+  /* width: max-content; */
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 
 .editor #txt {
   text-align: center;
   border-radius: 15px;
   border: none;
   margin-top: 8px;
-}
-
-.first-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
 }
 
 .first-container .switchline-btn {
@@ -138,19 +155,20 @@ canvas {
 }
 
 .second-container {
-  /* padding: 10px; */
-  /* background-color: #e0e5de; */
+  margin-block-start: 60px;
   background: linear-gradient(331deg, rgba(253, 253, 253, 1) 34%, rgba(243, 177, 192, 1) 74%);
 
   display: grid;
   align-items: center;
   justify-items: center;
   width: 500px;
+
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(7, 1fr);
   border: 1px solid rgb(144, 138, 138);
   border-radius: 10px;
 }
+
 .second-container .font-select {
   text-align: center;
   grid-column: 1/5;
@@ -183,6 +201,7 @@ canvas {
 }
 
 .third-container {
+  margin-block-start: 50px;
   background: rgb(177, 138, 130);
   background: linear-gradient(
     180deg,
@@ -296,6 +315,7 @@ canvas {
 }
 .editor .llama-img:hover {
   transform: rotate(360deg);
+  cursor: default;
 }
 
 /** gallery tool bar **/
@@ -353,6 +373,7 @@ canvas {
 .about-modal .sub-title {
   text-align: center;
 }
+
 .about-modal button {
   position: absolute;
   right: 0;
@@ -384,13 +405,88 @@ footer {
   text-align: center;
 }
 
-/* MOBILE */
+/*Media */
+@media (max-width: 1180px) {
+  /** canvas-container **/
+  .canvas-container {
+    display: flex;
+    background: linear-gradient(332deg, #feddd2 35%, #91ad98 76%);
+
+    margin: auto;
+    margin-top: 40px;
+    width: max-content;
+  }
+
+  canvas {
+    display: block;
+    margin: auto;
+  }
+
+  /** Editor Right BAR **/
+  .editor {
+    position: relative;
+    display: grid;
+    gap: 3px;
+    grid-template-rows: 45px 70px 155px 140px 183px;
+    /* width: 500px; */
+    padding: 15px;
+  }
+
+  .first-container {
+    width: 400px;
+  }
+  #text {
+    width: 100px;
+  }
+  .second-container {
+    width: 400px;
+  }
+}
+
+@media (max-width: 1070px) {
+  /** canvas-container **/
+  .canvas-container {
+    display: flex;
+    background: linear-gradient(332deg, #feddd2 35%, #91ad98 76%);
+
+    margin: auto;
+    margin-top: 40px;
+    width: max-content;
+  }
+
+  canvas {
+    display: block;
+    margin: auto;
+  }
+
+  /** Editor Right BAR **/
+  .editor {
+    position: relative;
+    display: grid;
+    gap: 3px;
+    grid-template-rows: 45px 70px 155px 140px 183px;
+    /* width: 400px; */
+    padding: 15px;
+  }
+
+  .first-container {
+    width: 400px;
+  }
+  #text {
+    width: 100px;
+  }
+  .second-container {
+    width: 400px;
+  }
+}
+
 @media (max-width: 480px) {
   /** canvas-container **/
   .canvas-container {
     display: flex;
     flex-direction: column;
   }
+
   canvas {
     height: 300px;
   }

@@ -44,20 +44,17 @@ function drawTxt(memeLine, isSelected, isDownload) {
   gCtx.font = `${size}px ${font}`
   var textWidth = gCtx.measureText(txt).width
   var lineHeight = size * 1.286
-  // gCtx.textBaseline = 'top'
   gCtx.textBaseline = 'middle'
   var xDiff = x - textWidth / 2 - 10
-  var yDidd = y - lineHeight / 2
+  var yDiff = y - lineHeight / 2
   gCtx.fillText(txt, x, y) // Draws (fills) a given text at the given (x, y) position.
   gCtx.strokeText(txt, x, y) // Draws (strokes) a given text at the given (x, y) position.
 
   //* If the Text Line is Selected- focus it:
 
-  // if (isDownload) return
-
   if (!isDownload && isSelected) {
     gCtx.strokeStyle = 'grey'
-    gCtx.strokeRect(xDiff, yDidd, textWidth + 20, lineHeight)
+    gCtx.strokeRect(xDiff, yDiff, textWidth + 20, lineHeight)
   }
 }
 
@@ -165,9 +162,17 @@ function addListeners() {
   addMouseListeners()
   addTouchListeners()
   //Listen for resize ev
-  // window.addEventListener('resize', () => {
-  //   onInit()
-  // })
+  window.addEventListener('resize', () => {
+    reziseCanvas()
+  })
+}
+
+function resizeCanvas() {
+  const elContainer = document.querySelector('.canvas-container')
+  // Note: changing the canvas dimension this way clears the canvas
+  gCanvas.width = elContainer.offsetWidth
+  gCanvas.height = elContainer.offsetWidth
+  renderMeme()
 }
 
 function addMouseListeners() {
